@@ -7,6 +7,10 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
+require('./database/db');
+
+app.use("/api", require('./Routes/CreateUser'));
+
 app.get("/", (req, res) => {
   res.send("Finance tracker server is running");
 });
